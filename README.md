@@ -52,6 +52,16 @@ Please read [Guard doc](http://github.com/guard/guard#readme) for more info abou
 
 Currently there is no option.
 
+## History
+
+#### v0.0.4
+
+Killing Sinatra when reloading on change without waiting for requests to be completed.
+
+#### v0.0.3
+
+Initial release
+
 ## TODOs
 
 * Add some options: host, port...
