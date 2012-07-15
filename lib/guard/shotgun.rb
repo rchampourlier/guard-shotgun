@@ -27,8 +27,7 @@ module Guard
         UI.error "Another instance of Sinatra is running."
         false
       else
-        @pid = Spoon.spawnp('rackup'
-        )
+        @pid = Spoon.spawnp('rackup')
         @pid
       end
     end
@@ -42,6 +41,14 @@ module Guard
       true
     end
 
+    def stop_without_waiting
+      UI.info "Shutting down Sinatra without waiting..."
+      Process.kill("KILL", @pid)
+      Process.wait(@pid)
+      @pid = nil
+      true
+    end
+    
     # Call with Ctrl-Z signal
     def reload
       restart
@@ -49,10 +56,16 @@ module Guard
 
     # Call on file(s) modifications
     def run_on_change(paths = {})
-      restart
+      restart_without_waiting
     end
 
     private
+
+    def restart_without_waiting
+      UI.info "Restarting Sinatra without waiting..."
+      stop_without_waiting
+      start
+    end
 
     def restart
       UI.info "Restarting Sinatra..."
