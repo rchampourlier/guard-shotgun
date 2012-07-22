@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "guard-shotgun"
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["romain@softr.li"]
-  s.date = "2012-07-15"
+  s.date = "2012-07-22"
   s.description = "Guard gem for Sinatra (shotgun-like)"
   s.email = "romain@softr.li"
   s.extra_rdoc_files = [
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "guard-shotgun.gemspec",
     "lib/guard/shotgun.rb",
+    "lib/guard/shotgun/notifier.rb",
     "lib/guard/shotgun/templates/Guardfile",
     "lib/guard/shotgun/version.rb"
   ]
