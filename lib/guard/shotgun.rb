@@ -6,14 +6,16 @@ require 'timeout'
 
 module Guard
   class Shotgun < Guard
-
+    autoload :Notifier, 'guard/shotgun/notifier'
     attr_accessor :pid
 
     def initialize(watchers=[], options={})
       super
       @options = {
-        :port       => 9393
+        :host => 'localhost',
+        :port => 9292
       }.update(options)
+      @reloaded = false
     end
 
     # =================
@@ -30,6 +32,9 @@ module Guard
         @pid = Spoon.spawnp('rackup')
         @pid
       end
+      wait_for_port
+      Notifier.notify(@reloaded ? 'reloaded' : 'up')
+      @reloaded = false
     end
 
     # Call with Ctrl-C signal (when Guard quit)
@@ -51,11 +56,13 @@ module Guard
     
     # Call with Ctrl-Z signal
     def reload
+      @reloaded = true
       restart
     end
 
     # Call on file(s) modifications
     def run_on_change(paths = {})
+      @reloaded = true
       restart_without_waiting
     end
 
@@ -89,7 +96,7 @@ module Guard
     def wait_for_port
       while true do
         sleep 0.2
-        port_open?(@options[:host], @options[:port]) and return
+        break if port_open?(@options[:host], @options[:port])
       end
     end
 
