@@ -21,7 +21,7 @@ Install the gem:
 
 Or add it to your Gemfile (inside development group):
 
-    gem 'guard-shotgun'
+    gem 'guard-shotgun', :git => https://github.com/rchampourlier/guard-shotgun.git
 
 Add guard definition to your Guardfile by running this command:
 
