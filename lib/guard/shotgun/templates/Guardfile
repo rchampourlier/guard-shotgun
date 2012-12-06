@@ -1,2 +1,2 @@
-guard 'shotgun' do
+guard :shotgun do
 end

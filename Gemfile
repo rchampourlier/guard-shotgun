@@ -1,5 +1,3 @@
-source "http://rubygems.org"
+source :rubygems
 
-gem 'guard'
-gem 'ffi'
-gem 'spoon'
+gemspec
