@@ -32,7 +32,7 @@ module Guard
         UI.error "Another instance of Rack is running."
         false
       else
-        @pid = Spoon.spawnp 'rackup', *options_array, (config_file if config_file)
+        @pid = Spoon.spawnp 'rackup', *options_array, config_file
       end
       wait_for_port
       Notifier.notify(@reloaded ? 'reloaded' : 'up')
@@ -71,7 +71,7 @@ module Guard
     private
 
     def config_file
-      @options.fetch :config, nil
+      @options.fetch :config, 'config.ru'
     end
 
     def options_array
