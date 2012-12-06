@@ -22,8 +22,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.required_ruby_version = '>= 1.9'
 
-  gem.add_dependency 'guard'
-  gem.add_dependency 'ffi'
-  gem.add_dependency 'spoon'
+  gem.add_dependency 'guard', '~> 1.5.4'
+  gem.add_dependency 'ffi', '~> 1.2.0'
+  gem.add_dependency 'spoon', '~> 0.0.1'
+
 end
 
