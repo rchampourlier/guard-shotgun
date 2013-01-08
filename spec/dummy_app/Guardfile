@@ -1,0 +1,5 @@
+require File.expand_path('../../../lib/guard/shotgun', __FILE__)
+
+guard 'shotgun' do
+  watch(%r{^(app|assets|lib|config)/(.)*.(rb|css|js|haml)})
+end

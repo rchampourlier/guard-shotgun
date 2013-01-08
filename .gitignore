@@ -3,4 +3,5 @@
 Gemfile.lock
 pkg/*
 .rvmrc
-vendor/bundle*
+/vendor/bundle
+/spec/dummy_app/vendor/bundle
