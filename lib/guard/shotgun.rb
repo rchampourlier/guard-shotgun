@@ -6,7 +6,7 @@ require 'timeout'
 
 module Guard
   class Shotgun < Guard
-    autoload :Notifier, 'guard/shotgun/notifier'
+    autoload :Notifier, File.expand_path('../shotgun/notifier', __FILE__)
     attr_accessor :pid
 
     def initialize(watchers=[], options={})
