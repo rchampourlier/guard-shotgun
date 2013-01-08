@@ -8,14 +8,17 @@ module Guard
           "Sinatra up and running"
         when 'reloaded'
           "Sinatra reloaded"
+        when 'failed'
+          'Sinatra failed to start'
         end
       end
 
       # failed | success
       def self.guard_image(result)
-        icon = if result == 'ready'
+        case result
+        when 'reloaded', 'up'
           :success
-        else
+        when 'failed'
           :failed
         end
       end
@@ -26,7 +29,6 @@ module Guard
 
         ::Guard::Notifier.notify(message, :title => 'guard-shotgun', :image => image)
       end
-
     end
   end
 end

@@ -9,6 +9,8 @@ module Guard
     autoload :Notifier, File.expand_path('../shotgun/notifier', __FILE__)
     attr_accessor :pid
 
+    STARTUP_TIMEOUT = 10 # seconds
+
     def initialize(watchers=[], options={})
       super
       @options = {
@@ -33,14 +35,19 @@ module Guard
         @pid
       end
       wait_for_port
-      Notifier.notify(@reloaded ? 'reloaded' : 'up')
-      @reloaded = false
+      if running?
+        Notifier.notify(@reloaded ? 'reloaded' : 'up')
+        @reloaded = false
+      else
+        UI.info "Sinatra failed to start."
+        Notifier.notify('failed')
+      end
     end
 
     # Call with Ctrl-C signal (when Guard quit)
     def stop
       UI.info "Shutting down Sinatra..."
-      Process.kill("TERM", @pid)
+      Process.kill("INT", @pid)
       Process.wait(@pid)
       @pid = nil
       true
@@ -94,7 +101,8 @@ module Guard
     end
 
     def wait_for_port
-      while true do
+      timeout_time = Time.now + STARTUP_TIMEOUT
+      while Time.now < timeout_time do
         sleep 0.2
         break if port_open?(@options[:host], @options[:port])
       end
