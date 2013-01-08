@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "guard-shotgun"
-  s.version = "0.0.5"
+  s.version = "0.0.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["romain@softr.li"]
-  s.date = "2012-07-22"
+  s.date = "2013-01-08"
   s.description = "Guard gem for Sinatra (shotgun-like)"
   s.email = "romain@softr.li"
   s.extra_rdoc_files = [
@@ -26,11 +26,18 @@ Gem::Specification.new do |s|
     "lib/guard/shotgun.rb",
     "lib/guard/shotgun/notifier.rb",
     "lib/guard/shotgun/templates/Guardfile",
-    "lib/guard/shotgun/version.rb"
+    "lib/guard/shotgun/version.rb",
+    "spec/dummy_app/.DS_Store",
+    "spec/dummy_app/Gemfile",
+    "spec/dummy_app/Guardfile",
+    "spec/dummy_app/Rakefile",
+    "spec/dummy_app/app/base_app.rb",
+    "spec/dummy_app/config.ru",
+    "spec/dummy_app/config/boot.rb"
   ]
   s.homepage = "http://github.com/rchampourlier/guard-shotgun"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.23"
   s.summary = "Guard gem for Sinatra (shotgun-like)"
 
   if s.respond_to? :specification_version then
@@ -40,15 +47,21 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<guard>, [">= 0"])
       s.add_runtime_dependency(%q<ffi>, [">= 0"])
       s.add_runtime_dependency(%q<spoon>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, [">= 0"])
     else
       s.add_dependency(%q<guard>, [">= 0"])
       s.add_dependency(%q<ffi>, [">= 0"])
       s.add_dependency(%q<spoon>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<rspec>, [">= 0"])
     end
   else
     s.add_dependency(%q<guard>, [">= 0"])
     s.add_dependency(%q<ffi>, [">= 0"])
     s.add_dependency(%q<spoon>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<rspec>, [">= 0"])
   end
 end
 
