@@ -15,7 +15,8 @@ module Guard
       super
       @options = {
         :host => 'localhost',
-        :port => 9292
+        :port => 9292,
+        :server => "WEBrick"
       }.update(options)
       @reloaded = false
     end
@@ -31,7 +32,7 @@ module Guard
         UI.error "Another instance of Sinatra is running."
         false
       else
-        @pid = Spoon.spawnp('rackup')
+        @pid = Spoon.spawnp('rackup', '--port', @options[:port].to_s, '--server', @options[:server])
         @pid
       end
       wait_for_port
