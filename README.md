@@ -52,13 +52,32 @@ Please read [Guard doc](http://github.com/guard/guard#readme) for more info abou
 
 Currently there is no option.
 
+
+## Testing
+
+There is currently no spec :S. I intend to write some (won't need much). You may however go to the `spec/dummy_app`  directory and run:
+
+```
+bundle install
+bundle exec guard
+```
+
+This way, you can check it's working correctly. You can play with the `spec/dummy_app/app/base_app.rb` file and introduce some bug so that you may see a failing start is correctly handled too.
+
+
 ## History
 
-#### v0.0.4
+#### 0.0.6
+
+* Improved start/stop management:
+  * Exiting Guard will trigger INT signal instead of TERM, stopping WEBRick gently.
+  * Failure to start will be detected too after a 10 seconds timeout, and the app will just get reloaded when you change a file.
+
+#### 0.0.4
 
 Killing Sinatra when reloading on change without waiting for requests to be completed.
 
-#### v0.0.3
+#### 0.0.3
 
 Initial release
 
