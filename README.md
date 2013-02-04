@@ -1,6 +1,6 @@
 # Guard::Shotgun
 
-Guard::Shotgun automatically starts and restarts Sinatra (through `rackup`) when needed. As useful as Shotgun when developing a Sinatra app.
+Guard::Shotgun automatically starts and restarts Rack applications (through `rackup`) when needed. As useful as Shotgun when developing a Sinatra app.
 
 * Tested on Ruby 1.9.2-p290 only.
 
