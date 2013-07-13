@@ -21,7 +21,7 @@ Install the gem:
 
 Or add it to your Gemfile (inside development group):
 
-    gem 'guard-shotgun', :git => https://github.com/rchampourlier/guard-shotgun.git
+    gem 'guard-shotgun', :git => 'https://github.com/rchampourlier/guard-shotgun.git'
 
 Add guard definition to your Guardfile by running this command:
 
@@ -44,7 +44,7 @@ For example, to look at the `main.rb` file in your application directory, just s
     guard 'shotgun' do
       watch('main.rb')
     end
-    
+
 Please read [Guard doc](http://github.com/guard/guard#readme) for more info about Guardfile DSL.
 
 
