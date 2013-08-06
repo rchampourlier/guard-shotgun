@@ -48,6 +48,15 @@ For example, to look at the `main.rb` file in your application directory, just s
       watch('main.rb')
     end
 
+**Common config**
+
+Here we watch Ruby files within the `app` and `lib` directories, as well as the `config.ru` file. We also use Thin as a server instead of the default WEBRick.
+
+    guard 'shotgun', :server => 'thin' do
+      watch %r{^(app|lib)/.*\.rb}
+      watch 'config.ru'
+    end
+
 Please read [Guard doc](http://github.com/guard/guard#readme) for more info about Guardfile DSL.
 
 
@@ -55,6 +64,7 @@ Please read [Guard doc](http://github.com/guard/guard#readme) for more info abou
 
 * `server`: the name of the server to use. The option is passed to the `rackup` command. You may use for example `WEBrick` (default), `thin`...
 * `port`: the port on which to run the server, the option is also passed to the `rackup` command.
+
 
 ## Testing
 
