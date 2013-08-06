@@ -2,7 +2,10 @@
 
 Guard::Shotgun automatically starts and restarts Sinatra (through `rackup`) when needed. As useful as Shotgun when developing a Sinatra app.
 
-* Tested on Ruby 1.9.2-p290 only.
+Tested on:
+
+* Ruby 1.9.2-p290
+* Ruby 2.0.0-p247
 
 ## Why?
 
@@ -50,8 +53,8 @@ Please read [Guard doc](http://github.com/guard/guard#readme) for more info abou
 
 ## Options
 
-Currently there is no option.
-
+* `server`: the name of the server to use. The option is passed to the `rackup` command. You may use for example `WEBrick` (default), `thin`...
+* `port`: the port on which to run the server, the option is also passed to the `rackup` command.
 
 ## Testing
 
