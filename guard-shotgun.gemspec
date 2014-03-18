@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.description   = 'This gem provides a Guard that restarts Rack apps when watched files are modified similar. Similar to the wonderful Shotgun by rtomayko'
   gem.summary       = 'Shotgun-like Guard for Rack apps'
   gem.date          = Date.today.to_s
-  gem.homepage      = "http://github.com/crymer11/guard-shotgun"
+  gem.homepage      = "http://github.com/rchampourlier/guard-shotgun"
   gem.license       = 'MIT'
   gem.executables   = []
   gem.files         = `git ls-files`.split("\n")
@@ -22,9 +22,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.required_ruby_version = '>= 1.9'
 
-  gem.add_dependency 'guard', '~> 1.5.4'
-  gem.add_dependency 'ffi', '~> 1.2.0'
-  gem.add_dependency 'spoon', '~> 0.0.1'
+  gem.add_dependency 'guard'
+  gem.add_dependency 'ffi'
+  gem.add_dependency 'spoon'
 
 end
 
