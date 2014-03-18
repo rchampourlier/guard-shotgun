@@ -9,8 +9,9 @@ Gem::Specification.new do |s|
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib"]
   s.authors = ["romain@softr.li"]
-  s.date = "2014-02-27"
+  s.date = "2014-03-18"
   s.description = "Guard gem for Sinatra (shotgun-like)"
   s.email = "romain@softr.li"
   s.extra_rdoc_files = [
@@ -18,6 +19,8 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
+    ".ruby-gemset",
+    ".ruby-version",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE",
@@ -38,8 +41,7 @@ Gem::Specification.new do |s|
     "spec/dummy_app/config/boot.rb"
   ]
   s.homepage = "http://github.com/rchampourlier/guard-shotgun"
-  s.require_paths = ["lib"]
-  s.rubygems_version = "2.1.9"
+  s.rubygems_version = "2.2.2"
   s.summary = "Guard gem for Sinatra (shotgun-like)"
 
   if s.respond_to? :specification_version then
