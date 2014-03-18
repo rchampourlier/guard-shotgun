@@ -1,6 +1,6 @@
 # Guard::Shotgun
 
-Guard::Shotgun automatically starts and restarts Rack applications (through `rackup`) when needed. As useful as Shotgun when developing a Sinatra app.
+Guard::Shotgun automatically starts and restarts Rack applications (through `rackup`) when needed. As useful as Shotgun when developing a Rack app.
 
 Tested on:
 
@@ -9,14 +9,15 @@ Tested on:
 
 ## Why?
 
-* You are **developing with Sinatra** and you have to **restart your development server each time you change your source code**?
+* You are **developing with Rack** and you have to **restart your development server each time you change your source code**?
 * You are **using Shotgun** to do this, but well, the **latest version is not showing the logs anymore** in your console, which makes developing a little harder?
+* Reloading your whole Rack app with each request seems a bit overkill? Seems better to only reload it on a file change?
 
 If you have answered 'yes' to any of these questions, you may find some use to this plugin.
 
 ## Install
 
-Please be sure to have [Guard](http://github.com/guard/guard) installed before continue.
+Please be sure to have [Guard](http://github.com/guard/guard) installed before continuing.
 
 Install the gem:
 
@@ -32,9 +33,9 @@ Add guard definition to your Guardfile by running this command:
 
 ## Usage
 
-This guard plugin is intended to be used when **developing a Sinatra application**, loaded through `rackup`.
+This guard plugin is intended to be used when **developing a Rack application**, loaded through `rackup`.
 
-**It allows automatic reloading of your Sinatra server when a file is changed.**
+**It allows automatic reloading of your Rack server when a file is changed.**
 
 > It provides the same service as the **Shotgun** gem, relying on **Guard** to watch for your files.
 
@@ -88,7 +89,7 @@ This way, you can check it's working correctly. You can play with the `spec/dumm
 
 #### 0.0.4
 
-Killing Sinatra when reloading on change without waiting for requests to be completed.
+Killing Rack when reloading on change without waiting for requests to be completed.
 
 #### 0.0.3
 
@@ -97,7 +98,7 @@ Initial release
 ## TODOs
 
 * Add some options: host, port...
-* Allow starting Sinatra applications without using rackup.
+* Allow starting Rack applications without using rackup.
 * Tests.
 
 Help is welcome!

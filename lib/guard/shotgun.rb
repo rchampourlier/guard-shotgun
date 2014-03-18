@@ -41,7 +41,7 @@ module Guard
         Notifier.notify(@reloaded ? 'reloaded' : 'up')
         @reloaded = false
       else
-        UI.info "Sinatra failed to start."
+        UI.info "Rack failed to start."
         Notifier.notify('failed')
       end
     end
