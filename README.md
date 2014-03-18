@@ -1,6 +1,6 @@
 # Guard::Shotgun
 
-Guard::Shotgun automatically starts and restarts Sinatra (through `rackup`) when needed. As useful as Shotgun when developing a Sinatra app.
+Guard::Shotgun automatically starts and restarts Rack applications (through `rackup`) when needed. As useful as Shotgun when developing a Sinatra app.
 
 Tested on:
 
@@ -105,8 +105,8 @@ Help is welcome!
 
 ## Development
 
-* Source hosted at [GitHub](http://github.com/rchampourlier/guard-shotgun)
-* Report issues/Questions/Feature requests on [GitHub Issues](http://github.com/rchampourlier/guard-shotgun/issues)
+* Source hosted at [GitHub](http://github.com/crymer11/guard-shotgun)
+* Report issues/Questions/Feature requests on [GitHub Issues](http://github.com/crymer11/guard-shotgun/issues)
 
 Pull requests are very welcome! Make sure your patches are well tested. Please create a topic branch for every separate change
 you make.
@@ -114,6 +114,7 @@ you make.
 ## Authors
 
 [Romain Champourlier](http://github.com/rchampourlier)
+[Colin Rymer](http://github.com/crymer11)
 
 
 ## Credits

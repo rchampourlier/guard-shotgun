@@ -1,10 +1,3 @@
-source "http://rubygems.org"
+source :rubygems
 
-gem 'guard'
-gem 'ffi'
-gem 'spoon'
-
-group :development, :test do
-  gem 'jeweler'
-  gem 'rspec'
-end
+gemspec

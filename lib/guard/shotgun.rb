@@ -6,7 +6,9 @@ require 'timeout'
 
 module Guard
   class Shotgun < Guard
-    autoload :Notifier, File.expand_path('../shotgun/notifier', __FILE__)
+    VALID_ARGS = %w{server host port env daemonize pid option}
+
+    autoload :Notifier, 'guard/shotgun/notifier'
     attr_accessor :pid
 
     STARTUP_TIMEOUT = 10 # seconds
@@ -14,10 +16,10 @@ module Guard
     def initialize(watchers=[], options={})
       super
       @options = {
-        :host => 'localhost',
-        :port => 9292,
-        :server => "WEBrick"
-      }.update(options)
+        host: 'localhost',
+        port: 9292,
+        server: "WEBrick"
+      }.update(options) { |key, oldval, newval| (newval.nil? || newval.empty?) ? oldval : newval }
       @reloaded = false
     end
 
@@ -27,13 +29,12 @@ module Guard
 
     # Call once when guard starts
     def start
-      UI.info "Starting up Sinatra..."
+      UI.info "Starting up Rack..."
       if running?
-        UI.error "Another instance of Sinatra is running."
+        UI.error "Another instance of Rack is running."
         false
       else
-        @pid = Spoon.spawnp('rackup', '--port', @options[:port].to_s, '--server', @options[:server])
-        @pid
+        @pid = Spoon.spawnp 'rackup', *options_array, config_file
       end
       wait_for_port
       if running?
@@ -47,21 +48,21 @@ module Guard
 
     # Call with Ctrl-C signal (when Guard quit)
     def stop
-      UI.info "Shutting down Sinatra..."
-      Process.kill("INT", @pid)
+      UI.info "Shutting down Rack..."
+      Process.kill("TERM", @pid)
       Process.wait(@pid)
       @pid = nil
       true
     end
 
     def stop_without_waiting
-      UI.info "Shutting down Sinatra without waiting..."
+      UI.info "Shutting down Rack without waiting..."
       Process.kill("KILL", @pid)
       Process.wait(@pid)
       @pid = nil
       true
     end
-    
+
     # Call with Ctrl-Z signal
     def reload
       @reloaded = true
@@ -76,14 +77,27 @@ module Guard
 
     private
 
+    def config_file
+      @options.fetch :config, 'config.ru'
+    end
+
+    def options_array
+      @options.each_with_object([]) do |(key, val), array|
+        key = key.to_s.downcase
+        if VALID_ARGS.include? key
+          array << "--#{key}" << val.to_s
+        end
+      end
+    end
+
     def restart_without_waiting
-      UI.info "Restarting Sinatra without waiting..."
+      UI.info "Restarting Rack without waiting..."
       stop_without_waiting
       start
     end
 
     def restart
-      UI.info "Restarting Sinatra..."
+      UI.info "Restarting Rack..."
       stop
       start
     end

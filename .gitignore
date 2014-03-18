@@ -1,6 +1,4 @@
 *.gem
 .bundle
 pkg/*
-.rvmrc
-/vendor/bundle
-/spec/dummy_app/vendor/bundle
+vendor/bundle*
