@@ -7,7 +7,7 @@ PATH
       spoon (~> 0.0.1)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     celluloid (0.15.2)
       timers (~> 1.1.0)
