@@ -8,7 +8,7 @@ module Guard
   class Shotgun < Plugin
     VALID_ARGS = %w{server host port env daemonize pid option}
 
-    autoload :Notifier, 'guard/shotgun/notifier'
+    require 'guard/shotgun/notifier'
     attr_accessor :pid
 
     STARTUP_TIMEOUT = 10 # seconds
