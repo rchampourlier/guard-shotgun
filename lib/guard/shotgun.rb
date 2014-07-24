@@ -1,11 +1,11 @@
 require 'guard'
-require 'guard/guard'
+require 'guard/plugin'
 require 'spoon'
 require 'socket'
 require 'timeout'
 
 module Guard
-  class Shotgun < Guard
+  class Shotgun < Plugin
     VALID_ARGS = %w{server host port env daemonize pid option}
 
     autoload :Notifier, 'guard/shotgun/notifier'
@@ -13,7 +13,7 @@ module Guard
 
     STARTUP_TIMEOUT = 10 # seconds
 
-    def initialize(watchers=[], options={})
+    def initialize(options={})
       super
       @options = {
         host: 'localhost',
