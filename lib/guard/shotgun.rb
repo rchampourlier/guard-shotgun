@@ -8,7 +8,7 @@ module Guard
   class Shotgun < Guard
     VALID_ARGS = %w{server host port env daemonize pid option}
 
-    autoload :Notifier, 'guard/shotgun/notifier'
+    require File.expand_path('../shotgun/notifier', __FILE__)
     attr_accessor :pid
 
     STARTUP_TIMEOUT = 10 # seconds
