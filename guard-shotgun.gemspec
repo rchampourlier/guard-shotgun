@@ -5,8 +5,8 @@ require 'date'
 Gem::Specification.new do |gem|
   gem.name          = "guard-shotgun"
   gem.version       = Guard::ShotgunVersion::VERSION
-  gem.authors       = ["romain@softr.li", "Colin Rymer"]
-  gem.email         = ["romain@softr.li", "colin.rymer@gmail.com"]
+  gem.authors       = ["romain@softr.li"]
+  gem.email         = ["romain@softr.li"]
   gem.description   = 'This gem provides a Guard that restarts Rack apps when watched files are modified similar. Similar to the wonderful Shotgun by rtomayko'
   gem.summary       = 'Shotgun-like Guard for Rack apps'
   gem.date          = Date.today.to_s
@@ -22,9 +22,10 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.required_ruby_version = '>= 1.9'
 
-  gem.add_dependency 'guard'
+  gem.add_dependency 'guard', "~> 1.0"
   gem.add_dependency 'ffi'
   gem.add_dependency 'spoon'
 
+  gem.add_development_dependency 'rspec'
 end
 
