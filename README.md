@@ -85,11 +85,15 @@ This way, you can check it's working correctly. You can play with the `spec/dumm
 
 ## History
 
-#### 0.2.0
+#### 0.3.0
 
 * Adding dependency on Guard ~> 1.0
 * Fixed an issue when autoloading the Notifier class
 * Minor changes to README, repo and dummy_app
+
+#### 0.2.0
+
+* Merged an update by Colin Rymer
 
 #### 0.1.0
 
