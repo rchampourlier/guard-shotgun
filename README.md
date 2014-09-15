@@ -79,7 +79,21 @@ bundle exec guard
 This way, you can check it's working correctly. You can play with the `spec/dummy_app/app/base_app.rb` file and introduce some bug so that you may see a failing start is correctly handled too.
 
 
+## Compatibility with Guard
+
+* 0.2.0 is compatible (and dependent on) Guard ~> 1.0
+
 ## History
+
+#### 0.2.0
+
+* Adding dependency on Guard ~> 1.0
+* Fixed an issue when autoloading the Notifier class
+* Minor changes to README, repo and dummy_app
+
+#### 0.1.0
+
+* Essentially repository cleanup and README update.
 
 #### 0.0.6
 
