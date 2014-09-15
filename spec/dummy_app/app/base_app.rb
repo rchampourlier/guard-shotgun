@@ -1,5 +1,7 @@
 class BaseApp < Sinatra::Base
-  #raise "Failing app"  
+  #raise "Failing app"
 
-  get '/' do; end
+  get '/' do
+    "Hello world, naturally!"
+  end
 end

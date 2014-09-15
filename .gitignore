@@ -2,3 +2,5 @@
 .bundle
 pkg/*
 vendor/bundle*
+/*.ruby-version
+*.ruby-gemset
