@@ -1,6 +1,16 @@
 module Guard
-  class Shotgun
+  class Shotgun < Plugin
     class Notifier
+
+      def self.notify(result)
+        message = guard_message(result)
+        options = {
+          title: 'guard-shotgun',
+          image: guard_image(result)
+        }
+
+        ::Guard::Notifier.notify(message, options)
+      end
 
       def self.guard_message(result)
         case result
@@ -23,12 +33,6 @@ module Guard
         end
       end
 
-      def self.notify(result)
-        message = guard_message(result)
-        image   = guard_image(result)
-
-        ::Guard::Notifier.notify(message, :title => 'guard-shotgun', :image => image)
-      end
     end
   end
 end
