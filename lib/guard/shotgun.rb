@@ -34,7 +34,7 @@ module Guard
         UI.error "Another instance of Rack is running."
         false
       else
-        @pid = Spoon.spawnp 'rackup', *options_array, config_file
+        @pid = Spoon.spawnp 'rackup', *(options_array << (config_file if config_file)).reject(&:nil?)
       end
       wait_for_port
       if running?
