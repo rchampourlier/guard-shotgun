@@ -85,6 +85,15 @@ This way, you can check it's working correctly. You can play with the `spec/dumm
 
 ## History
 
+#### 0.4.0
+
+* Merged PR with the changes to make it compatible with Guard 2. Thanks to
+@jnv!
+
+#### 0.3.1
+
+* Merged PR fixing issue with Spoon
+
 #### 0.3.0
 
 * Adding dependency on Guard ~> 1.0
