@@ -26,6 +26,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'ffi'
   gem.add_dependency 'spoon'
 
+  gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
 end
 
