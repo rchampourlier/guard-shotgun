@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    guard-shotgun (0.3.1)
+    guard-shotgun (0.4.0)
       ffi
       guard (~> 2.0)
       spoon
