@@ -49,16 +49,16 @@ module Guard
     # Call with Ctrl-C signal (when Guard quit)
     def stop
       UI.info "Shutting down Rack..."
-      Process.kill("TERM", @pid)
-      Process.wait(@pid)
+      ::Process.kill("TERM", @pid)
+      ::Process.wait(@pid)
       @pid = nil
       true
     end
 
     def stop_without_waiting
       UI.info "Shutting down Rack without waiting..."
-      Process.kill("KILL", @pid)
-      Process.wait(@pid)
+      ::Process.kill("KILL", @pid)
+      ::Process.wait(@pid)
       @pid = nil
       true
     end
@@ -105,7 +105,7 @@ module Guard
     def running?
       begin
         if @pid
-          Process.getpgid @pid
+          ::Process.getpgid @pid
           true
         else
           false
